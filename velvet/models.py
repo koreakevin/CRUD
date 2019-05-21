@@ -8,4 +8,12 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
+class Comment(models.Model):
+    article_id = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name="comments")
+    comment_text = models.CharField(max_length=50)
+
+    def __str__(self):
+       return self.comment_text
+
+
 # Create your models here.
